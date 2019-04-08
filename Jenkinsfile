@@ -11,7 +11,7 @@ pipeline {
             }
         }
         stage ('Example Test') {
-            agent{label 'docker-slave0'}
+            agent{label 'docker-slave1'}
             steps{
                 echo 'begin test+++++++++++++++++++++'
                 sh 'sleep 5s'
