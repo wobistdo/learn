@@ -1,18 +1,22 @@
 pipeline {
-    agent any
-    // 定义了参数输入
-    parameters {
-        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-    }
+    agent none
     stages {
-        stage('Example') {
-            steps {
-                echo "Hello ${params.PERSON}"
+        stage ('Example Build') {
+            agent{label 'docker-slave0'}
+            steps{
+                echo 'begin build+++++++++++++++++++++'
+                sh 'g++ helloworld.cpp -o helloworld '
+                sh 'whereis java'
+                echo 'end build+++++++++++++++++++++++'
             }
         }
-       stage('Example2') {
-            steps {
-                echo "Nice to meet you, ${params.PERSON}"
+        stage ('Example Test') {
+            agent{label 'docker-slave1'}
+            steps{
+                echo 'begin test+++++++++++++++++++++'
+                sh 'sleep 5s'
+                sh 'whereis java'
+                echo 'end test+++++++++++++++++++++++'
             }
         }
     }
