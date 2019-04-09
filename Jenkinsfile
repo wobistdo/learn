@@ -24,7 +24,7 @@ pipeline {
 		always{
 			emailext(
 				subject: '${ENV, var="JOB_NAME"}-build log number =  ${BUILD_NUMBER}',
-				body: '${FILE,path="C:\Users\admin\Desktop\email.html"}',
+				body: '${FILE,path="C:/Users/admin/Desktop/email.html"}',
 				to: '1057502789@qq.com'
 			)
 		}
