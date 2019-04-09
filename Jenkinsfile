@@ -26,6 +26,7 @@ pipeline {
 				attachmentsPattern: '*.md',
       				from: env.DEFAULT_REPLYTO,
       				replyTo: env.DEFAULT_REPLYTO,
+				recipentProviders: [developers]
 				body: '''
 				<!DOCTYPE html>
 <html>
@@ -105,8 +106,7 @@ pipeline {
     </table>
 </body>
 </html>
-				''',
-				to: '1057502789@qq.com'
+				'''
 			)
 		}
 	}
