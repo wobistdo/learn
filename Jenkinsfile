@@ -20,7 +20,7 @@ pipeline {
             }
         }
     }
-	post {
+	post ('Example Send email'){
 		always{
 			emailext(
 				subject: '${ENV, var="JOB_NAME"}-第${BUILD_NUMBER}次构建日志',
