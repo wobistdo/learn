@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent {label 'docker-slave0'}
     stages {
         stage ('Example Build') {
             agent{label 'docker-slave0'}
@@ -21,7 +21,6 @@ pipeline {
 	}
 	post {
 		always{
-			agent{label 'docker-slave0'}
 			emailext(
 				subject: '${ENV, var="JOB_NAME"}-build log number =  ${BUILD_NUMBER}',
 				attachLog: true,
