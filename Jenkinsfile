@@ -19,7 +19,8 @@ pipeline {
                 echo 'end test+++++++++++++++++++++++'
             }
         }
-	post ('Example Send email'){
+	}
+	post {
 		always{
 			emailext(
 				subject: '${ENV, var="JOB_NAME"}-build log number =  ${BUILD_NUMBER}',
@@ -30,6 +31,5 @@ pipeline {
 				to: '1057502789@qq.com'
 			)
 		}
-	}
 	}
 }
