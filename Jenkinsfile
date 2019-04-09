@@ -19,8 +19,8 @@ pipeline {
             }
         }
     }
-	agent any
 	post ('Example Send email'){
+		agent{label 'docker-slave0'}
 		always{
 			emailext(
 				subject: '${ENV, var="JOB_NAME"}-build log number =  ${BUILD_NUMBER}',
