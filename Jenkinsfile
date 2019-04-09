@@ -24,7 +24,10 @@ pipeline {
 		always{
 			emailext(
 				subject: '${ENV, var="JOB_NAME"}-build log number =  ${BUILD_NUMBER}',
-				body: '${FILE,path="C:/Users/admin/Desktop/email.html"}',
+				attachmentsPattern: '*.md',
+      				from: env.DEFAULT_REPLYTO,
+      				replyTo: env.DEFAULT_REPLYTO,
+				body: 'your component is released',
 				to: '1057502789@qq.com'
 			)
 		}
