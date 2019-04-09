@@ -23,9 +23,9 @@ pipeline {
 	post ('Example Send email'){
 		always{
 			emailext(
-				subject: '${ENV, var="JOB_NAME"}-第${BUILD_NUMBER}次构建日志',
+				subject: '${ENV, var="JOB_NAME"}-build log number =  ${BUILD_NUMBER}',
 				body: '${FILE,path="email.html"}',
-				to: '1057502789@qq.com'
+				recipientProviders: developers
 			)
 		}
 	}
