@@ -14,12 +14,12 @@ pipeline {
             agent{label 'docker-slave0'}
             steps{
                 echo 'begin test+++++++++++++++++++++'
-                sh 'sleep 5s'
                 sh 'whereis java'
                 echo 'end test+++++++++++++++++++++++'
             }
         }
     }
+	agent any
 	post ('Example Send email'){
 		always{
 			emailext(
@@ -27,7 +27,7 @@ pipeline {
 				attachmentsPattern: '*.md',
       				from: env.DEFAULT_REPLYTO,
       				replyTo: env.DEFAULT_REPLYTO,
-				body: 'your component is released',
+				body: '${FILE, path="email.html"}',
 				to: '1057502789@qq.com'
 			)
 		}
