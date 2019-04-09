@@ -25,7 +25,7 @@ pipeline {
 			emailext(
 				subject: '${ENV, var="JOB_NAME"}-第${BUILD_NUMBER}次构建日志',
 				body: '${FILE,path="email.html"}',
-				to: 'alvin_hou@qq.com'
+				to: 'wobistdohzt@163.com'
 			)
 		}
 	}
