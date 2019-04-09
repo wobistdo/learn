@@ -26,7 +26,7 @@ pipeline {
 				attachmentsPattern: '*.md',
       				from: env.DEFAULT_REPLYTO,
       				replyTo: env.DEFAULT_REPLYTO, 
-				recipientProviders: [developers(), culprits()],
+				recipientProviders: [developers()],
 				body: 'this is body'
 			)
 		}
