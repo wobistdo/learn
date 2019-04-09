@@ -21,6 +21,7 @@ pipeline {
 	}
 	post {
 		always{
+			agent{label 'docker-slave0'}
 			emailext(
 				subject: '${ENV, var="JOB_NAME"}-build log number =  ${BUILD_NUMBER}',
 				attachLog: true,
