@@ -14,7 +14,6 @@ pipeline {
             agent{label 'docker-slave0'}
             steps{
                 echo 'begin test+++++++++++++++++++++'
-                sh 'sleep 5s'
                 sh 'whereis java'
                 echo 'end test+++++++++++++++++++++++'
             }
@@ -31,7 +30,7 @@ pipeline {
 				<!DOCTYPE html>
 <html>
 <head>
-<meta charset="GBK">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>${ENV, var="JOB_NAME"}-第${BUILD_NUMBER}次构建日志</title>
 </head>
 
