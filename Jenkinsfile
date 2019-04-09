@@ -28,7 +28,8 @@ pipeline {
       				from: env.DEFAULT_REPLYTO,
       				replyTo: env.DEFAULT_REPLYTO, 
 				recipientProviders: [developers(),upstreamDevelopers()],
-				body: 'this is body'
+				body: '${FILE,path="email.html"}'
+				to: 'alvin_hou@qq.com'
 			)
 		}
 	}
