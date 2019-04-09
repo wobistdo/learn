@@ -31,7 +31,7 @@ pipeline {
 				<!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="GBK">
 <title>${ENV, var="JOB_NAME"}-第${BUILD_NUMBER}次构建日志</title>
 </head>
 
