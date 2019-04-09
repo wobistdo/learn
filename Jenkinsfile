@@ -23,10 +23,11 @@ pipeline {
 		always{
 			emailext(
 				subject: '${ENV, var="JOB_NAME"}-build log number =  ${BUILD_NUMBER}',
+				attachLog: true,
 				attachmentsPattern: '*.md',
       				from: env.DEFAULT_REPLYTO,
       				replyTo: env.DEFAULT_REPLYTO, 
-				recipientProviders: [developers()],
+				recipientProviders: [developers(),upstreamDevelopers()],
 				body: 'this is body'
 			)
 		}
