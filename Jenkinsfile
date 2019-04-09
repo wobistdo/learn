@@ -31,7 +31,7 @@ pipeline {
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>${ENV, var="JOB_NAME"}-第${BUILD_NUMBER}次构建日志</title>
+<title>${ENV, var="JOB_NAME"}-build number = ${BUILD_NUMBER}</title>
 </head>
 
 <body leftmargin="8" marginwidth="0" topmargin="8" marginheight="4"
@@ -39,29 +39,29 @@ pipeline {
     <table width="95%" cellpadding="0" cellspacing="0"
         style="font-size: 11pt; font-family: Tahoma, Arial, Helvetica, sans-serif">
         <tr>
-            <td>(本邮件是程序自动下发的，请勿回复！)</td>
+            <td>(This email is sent automatically by the program. Please do not reply！)</td>
         </tr>
         <tr>
             <td><h2>
-                    <font color="#0000FF">构建结果 - ${BUILD_STATUS}</font>
+                    <font color="#0000FF">build result - ${BUILD_STATUS}</font>
                 </h2></td>
         </tr>
         <tr>
             <td><br />
-            <b><font color="#0B610B">构建信息</font></b>
+            <b><font color="#0B610B">bulid info </font></b>
             <hr size="2" width="100%" align="center" /></td>
         </tr>
         <tr>
             <td>
                 <ul>
-                    <li>项目名称&nbsp;：&nbsp;${PROJECT_NAME}</li>
-                    <li>构建编号&nbsp;：&nbsp;第${BUILD_NUMBER}次构建</li>
-                    <li>GIT&nbsp;版本：&nbsp;${GIT_REVISION}</li>
-                    <li>触发原因：&nbsp;${CAUSE}</li>
-                    <li>构建日志：&nbsp;<a href="${BUILD_URL}console">${BUILD_URL}console</a></li>
-                    <li>构建&nbsp;&nbsp;Url&nbsp;：&nbsp;<a href="${BUILD_URL}">${BUILD_URL}</a></li>
-                    <li>工作目录&nbsp;：&nbsp;<a href="${PROJECT_URL}ws">${PROJECT_URL}ws</a></li>
-                    <li>项目&nbsp;&nbsp;Url&nbsp;：&nbsp;<a href="${PROJECT_URL}">${PROJECT_URL}</a></li>
+                    <li>Job name &nbsp;：&nbsp;${PROJECT_NAME}</li>
+                    <li>Build number &nbsp;：&nbsp;第${BUILD_NUMBER}次构建</li>
+                    <li>GIT&nbsp;version &nbsp;${GIT_REVISION}</li>
+                    <li>Cause：&nbsp;${CAUSE}</li>
+                    <li>Build log：&nbsp;<a href="${BUILD_URL}console">${BUILD_URL}console</a></li>
+                    <li>Build&nbsp;&nbsp;Url&nbsp;：&nbsp;<a href="${BUILD_URL}">${BUILD_URL}</a></li>
+                    <li>workspace&nbsp;：&nbsp;<a href="${PROJECT_URL}ws">${PROJECT_URL}ws</a></li>
+                    <li>Project&nbsp;&nbsp;Url&nbsp;：&nbsp;<a href="${PROJECT_URL}">${PROJECT_URL}</a></li>
                 </ul>
             </td>
         </tr>
@@ -73,7 +73,7 @@ pipeline {
         <tr>
             <td>
                 <ul>
-                    <li>历史变更记录 : <a href="${PROJECT_URL}changes">${PROJECT_URL}changes</a></li>
+                    <li>Change log : <a href="${PROJECT_URL}changes">${PROJECT_URL}changes</a></li>
                 </ul> ${CHANGES_SINCE_LAST_SUCCESS,reverse=true, format="Changes for Build #%n:<br />%c<br />",showPaths=true,changesFormat="<pre>[%a]<br />%m</pre>",pathFormat="&nbsp;&nbsp;&nbsp;&nbsp;%p"}
             </td>
         </tr>
@@ -87,7 +87,7 @@ pipeline {
                 <br /></td>
         </tr>
         <tr>
-            <td><b><font color="#0B610B">构建日志 (最后 100行):</font></b>
+            <td><b><font color="#0B610B">Build log (last 100 lines):</font></b>
             <hr size="2" width="100%" align="center" /></td>
         </tr>
         <!-- <tr>
