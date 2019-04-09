@@ -25,8 +25,8 @@ pipeline {
 				subject: '${ENV, var="JOB_NAME"}-build log number =  ${BUILD_NUMBER}',
 				attachmentsPattern: '*.md',
       				from: env.DEFAULT_REPLYTO,
-      				replyTo: env.DEFAULT_REPLYTO,
-				recipientProviders: [developers],
+      				replyTo: env.DEFAULT_REPLYTO, 
+				recipientProviders: [developers(), culprits()],
 				body: 'this is body'
 			)
 		}
