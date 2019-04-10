@@ -28,7 +28,7 @@ pipeline {
       				from: env.DEFAULT_REPLYTO,
       				replyTo: env.DEFAULT_REPLYTO, 
 				recipientProviders: [developers(),upstreamDevelopers()],
-				body: '这句是中文'/*'${FILE,path="email.html"}'*/,
+				body: '${FILE,path="email.html"}',
 				to: 'alvin_hou@qq.com'
 			)
 		}
