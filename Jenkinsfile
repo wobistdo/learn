@@ -22,7 +22,7 @@ pipeline {
 	post {
 		always{
 			emailext(
-				subject: '${ENV, var="JOB_NAME"}-build log number =  ${BUILD_NUMBER}',
+				subject: '${ENV, var="JOB_NAME"}-第${BUILD_NUMBER}次构建',
 				attachLog: true,
 				attachmentsPattern: '*.md',
       				from: env.DEFAULT_REPLYTO,
