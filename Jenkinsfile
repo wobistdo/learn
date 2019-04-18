@@ -27,7 +27,7 @@ pipeline {
 				attachmentsPattern: '*.md',
       				from: env.DEFAULT_REPLYTO,
       				replyTo: env.DEFAULT_REPLYTO, 
-				recipientProviders: [culprits()],
+				recipientProviders: [developers()],
 				body: /*'${FILE,path="email.html"}'*/'''
 				<!DOCTYPE html>
 <html>
