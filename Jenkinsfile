@@ -27,7 +27,7 @@ pipeline {
 				attachmentsPattern: '*.md',
       				from: env.DEFAULT_REPLYTO,
       				replyTo: env.DEFAULT_REPLYTO, 
-				recipientProviders: [developers(),upstreamDevelopers()],
+				recipientProviders: [culprits()],
 				body: /*'${FILE,path="email.html"}'*/'''
 				<!DOCTYPE html>
 <html>
@@ -106,8 +106,8 @@ pipeline {
     </table>
 </body>
 </html>
-				''',
-				to: 'alvin_hou@qq.com'
+				'''
+				//,to: 'alvin_hou@qq.com'
 			)
 		}
 	}
