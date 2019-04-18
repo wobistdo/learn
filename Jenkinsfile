@@ -1,8 +1,8 @@
 pipeline {
-    agent {label 'docker-slave0'}
+    agent {label 'sw1'}
     stages {
         stage ('Example Build') {
-            agent{label 'docker-slave0'}
+            agent{label 'sw1'}
             steps{
                 echo 'begin build+++++++++++++++++++++'
                 sh 'g++ helloworld.cpp -o helloworld '
@@ -11,7 +11,7 @@ pipeline {
             }
         }
         stage ('Example Test') {
-            agent{label 'docker-slave0'}
+            agent{label 'sw2'}
             steps{
                 echo 'begin test+++++++++++++++++++++'
                 sh 'whereis java'
